@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ProductsController extends Controller
 {
@@ -21,7 +22,7 @@ class ProductsController extends Controller
 
             return response()->json($product);
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Product does not exist.']);
+            return response()->json(['message' => 'Product does not exist.']);
         }
     }
 
@@ -33,43 +34,68 @@ class ProductsController extends Controller
      */
     public function store(Request $request): JsonResponse
     {
-        $request->valdate([
-            'name' => 'required|string|max:50',
-            'description' => 'required|string|max:255',
-            'price' => 'required|numeric|gt:0',
-        ]);
+        try {
+            $validate = Validator::make($request->all(), [
+                'name' => 'required|string',
+                'description' => 'required|string',
+                'price' => 'required|numeric|gt:0',
+            ]);
 
-        $product = Product::create([
-            'name' => $request->name,
-            'description' => $request->description,
-            'price' => $request->price,
-        ]);
+            if($validate->fails()){
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Validation error.',
+                    'errors' => $validate->errors()
+                ], 422);
+            }
 
-        return response()->json($product);
+            Product::create([
+                'name' => $request->name,
+                'description' => $request->description,
+                'price' => $request->price,
+            ]);
+
+            return response()->json(['status' => true, 'message' => 'Product created successfully.']);
+        } catch (\Exception $e) {
+            return response()->json(['status' => false, 'message' => 'Can not create product.', 'errors' => $e->getMessage()]);
+        }
     }
 
     /**
      * Update the specified product in the database.
      *
      * @param Request $request
-     * @param $id
+     * @param int $id
      * @return JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, int $id): JsonResponse
     {
-        $request->valdate([
-            'name' => 'required|string|max:50',
-            'description' => 'required|string|max:255',
-            'price' => 'required|numeric|gt:0',
-        ]);
+        return response()->json($request);
+        try {
+            $validate = Validator::make($request->all(), [
+                'name' => 'required|string',
+                'description' => 'required|string',
+                'price' => 'required|numeric',
+            ]);
 
-        Product::where('id', $id)->update([
-            'name' => $request->name,
-            'description' => $request->description,
-            'price' => $request->price,
-        ]);
+            if ($validate->fails()) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Validation error.',
+                    'errors' => $validate->errors()
+                ], 422);
+            }
 
-        return response()->json(['success' => 1]);
+            Product::whereId($id)->update([
+                'name' => (string)$request->name,
+                'description' => $request->description,
+                'price' => $request->price,
+            ]);
+
+            return response()->json(['status' => true, 'message' => 'Product updated successfully.']);
+        } catch (\Exception $e) {
+            return response()->json(['status' => false, 'message' => 'Product not updated.', 'errors' => $e->getMessage()]);
+        }
     }
 
     /**
@@ -78,10 +104,16 @@ class ProductsController extends Controller
      * @param Product $product
      * @return JsonResponse
      */
-    public function destroy(Product $product): JsonResponse
+    public function destroy(int $id): JsonResponse
     {
-        $product->delete();
+        try {
+            $product = Product::findOrFail($id);
 
-        return response()->json(['success' => 1]);
+            $product->delete();
+
+            return response()->json(['status' => true, 'message' => 'Product deleted successfully.']);
+        } catch (\Exception $e) {
+            return response()->json(['status' => false, 'message' => 'Product does not exist']);
+        }
     }
 }
