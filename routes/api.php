@@ -24,3 +24,5 @@ Route::middleware('auth:sanctum')->group(function() {
 });
 
 Route::get('/products/{id}', 'App\Http\Controllers\ProductsController@index');
+
+Route::post('/login', 'App\Http\Controllers\Auth\AuthController@login');
