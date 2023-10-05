@@ -70,7 +70,6 @@ class ProductsController extends Controller
      */
     public function update(Request $request, int $id): JsonResponse
     {
-        return response()->json($request);
         try {
             $validate = Validator::make($request->all(), [
                 'name' => 'required|string',
