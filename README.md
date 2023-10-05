@@ -19,6 +19,7 @@ Here's how do the basic setup for any laravel app:
 - You need to create a database and enter the database name and hosting information under DB_DATABASE, DB_USERNAME, DB_PASSWORD, DB_PORT and DB_HOST fields in .env file
 - php artisan migrate --seed
 - php artisan serve
+
 #### Next thing is how to get to run the api endpoints:
 
 - Access the login route with "/login" with fields like: email: user@users.com, password: password in order to get the access token
@@ -26,6 +27,7 @@ Here's how do the basic setup for any laravel app:
 - Access the route you wish
 
 ### Here is an example how we can access the routes:
+
 1 - being the id of the product we are accessing/updating/deleting
   #### TYPE OF REQUEST ......  ROUTE
 - GET ......................... /products/1
