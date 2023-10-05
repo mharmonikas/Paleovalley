@@ -33,7 +33,7 @@ class AuthController extends Controller
                 ], 401);
             }
 
-            if(!Auth::guard('web')->attempt($request->only(['email', 'password']))){
+            if(!Auth::attempt($request->only(['email', 'password']))){
                 return response()->json([
                     'status' => false,
                     'message' => 'Wrong Email or Password.',
@@ -45,7 +45,7 @@ class AuthController extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'User logged in successfully.',
-                'token' => $user->createToken('api-token')->plainTextToken
+                'token' => $user->createToken('api-token', ['products:create', 'products:update', 'products:delete'])->plainTextToken
             ], 200);
 
         } catch (\Throwable $th) {

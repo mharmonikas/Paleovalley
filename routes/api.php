@@ -14,13 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->group(function() {
-    Route::prefix('products')->group(function() {
-        Route::post('', 'App\Http\Controllers\ProductsController@store');
-        Route::put('{id}', 'App\Http\Controllers\ProductsController@update');
-        Route::delete('{id}', 'App\Http\Controllers\ProductsController@destroy');
-    });
-
+Route::prefix('products')->group(function() {
+    Route::post('', 'App\Http\Controllers\ProductsController@store')->middleware(['auth:sanctum', 'ability:products:create']);
+    Route::put('{id}', 'App\Http\Controllers\ProductsController@update')->middleware(['auth:sanctum', 'ability:products:update']);
+    Route::delete('{id}', 'App\Http\Controllers\ProductsController@destroy')->middleware(['auth:sanctum', 'ability:products:delete']);
 });
 
 Route::get('/products/{id}', 'App\Http\Controllers\ProductsController@index');
