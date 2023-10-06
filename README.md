@@ -3,14 +3,12 @@
 ## Main configurations you need for running this app
 - For windows:
   - Xampp or lamp server
-  - PHP 8.0 or greater
-  - MySQL 8.0 or greater
-  - Laravel 8.75
+  - PHP 7.3 or 8.0
+  - MySQL 8.0
 - For Linux:
-  - PHP 8.0 or greater
+  - PHP 7.3 or 8.0
   - Apache2
-  - MySQL 8.0 or greater
-  - Laravel 8.75
+  - MySQL 8.0
 
 ## Laravel setup
 
