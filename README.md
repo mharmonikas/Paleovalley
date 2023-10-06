@@ -34,3 +34,7 @@ Here's how do the basic setup for any laravel app:
 - PUT........................... /products/1 with fields: name: 'some name': description': 'some description', price: 10
 - DELETE ................... /products/1 
 - POST ....................... /products with fields: name: 'new name', description: 'new description': price: 20
+
+### There is also a postman collection uploaded in the root of the project under "Paleovalley.postman_collection.json".
+- You can just import it into postman and run the requests to check the api.
+

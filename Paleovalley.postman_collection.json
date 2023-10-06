@@ -1,0 +1,310 @@
+{
+	"id": "d4011dd1-6dd1-978a-d401-b7ee46892a2c",
+	"name": "Paleovalley",
+	"description": "",
+	"order": [
+		"1881465f-63dc-a9d1-e247-3d7c72191bf8",
+		"c8220ea9-1890-e88b-8ffa-3db3242f1442",
+		"bdea9c5c-3ea3-7571-636f-cd088176e066",
+		"7683984e-4ab6-68cc-03b4-c8bd36235ad7",
+		"d0974445-1bdd-c4ea-ba5e-0c8a170044c4"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1696447896764,
+	"owner": "10526388",
+	"public": false,
+	"requests": [
+		{
+			"id": "1881465f-63dc-a9d1-e247-3d7c72191bf8",
+			"headers": "//Bearer: 1|nYPPFGM3r2skvq3rDH7A8G18MBAdTfQuOnMdOeD7\n//email: \nAccept: application/json\n",
+			"headerData": [
+				{
+					"key": "Bearer",
+					"value": "1|nYPPFGM3r2skvq3rDH7A8G18MBAdTfQuOnMdOeD7",
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "email",
+					"value": "",
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/login",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "d4011dd1-6dd1-978a-d401-b7ee46892a2c",
+			"data": [
+				{
+					"key": "name",
+					"value": "test",
+					"description": "",
+					"type": "text",
+					"enabled": false
+				},
+				{
+					"key": "email",
+					"value": "user@users.com",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "password",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "c_password",
+					"value": "1234",
+					"description": "",
+					"type": "text",
+					"enabled": false
+				}
+			],
+			"dataMode": "params",
+			"name": "Login",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1696581248700,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "7683984e-4ab6-68cc-03b4-c8bd36235ad7",
+			"headers": "Authorization: Bearer 3|7SnWDMIhmJqb4b6wmE5J2s4DLWmOcXFSt8FOyRx1\nAccept: application/json\nContent-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer 3|7SnWDMIhmJqb4b6wmE5J2s4DLWmOcXFSt8FOyRx1",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/products/6",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [
+				{
+					"key": "name",
+					"value": "new name",
+					"description": ""
+				},
+				{
+					"key": "description",
+					"value": "new description",
+					"description": ""
+				},
+				{
+					"key": "price",
+					"value": "20",
+					"description": ""
+				}
+			],
+			"dataMode": "urlencoded",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1696581585362,
+			"name": "Update Product",
+			"description": "",
+			"collectionId": "d4011dd1-6dd1-978a-d401-b7ee46892a2c",
+			"responses": []
+		},
+		{
+			"id": "bdea9c5c-3ea3-7571-636f-cd088176e066",
+			"headers": "Authorization: Bearer 3|7SnWDMIhmJqb4b6wmE5J2s4DLWmOcXFSt8FOyRx1\nAccept: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer 3|7SnWDMIhmJqb4b6wmE5J2s4DLWmOcXFSt8FOyRx1",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/products",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [
+				{
+					"key": "name",
+					"value": "name",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "description",
+					"value": "description",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "price",
+					"value": "10",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1696581559293,
+			"name": "Store Product",
+			"description": "",
+			"collectionId": "d4011dd1-6dd1-978a-d401-b7ee46892a2c",
+			"responses": []
+		},
+		{
+			"id": "c8220ea9-1890-e88b-8ffa-3db3242f1442",
+			"headers": "",
+			"headerData": [],
+			"url": "http://127.0.0.1:8000/api/products/1",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "d4011dd1-6dd1-978a-d401-b7ee46892a2c",
+			"data": [
+				{
+					"key": "name",
+					"value": "test",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "email",
+					"value": "test@test.com",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "1234",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "Get Product",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1696581475247,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "d0974445-1bdd-c4ea-ba5e-0c8a170044c4",
+			"headers": "Authorization: Bearer 3|7SnWDMIhmJqb4b6wmE5J2s4DLWmOcXFSt8FOyRx1\nAccept: application/json\nContent-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer 3|7SnWDMIhmJqb4b6wmE5J2s4DLWmOcXFSt8FOyRx1",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/products/6",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": [
+				{
+					"key": "name",
+					"value": "asd",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "description",
+					"value": "test",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "price",
+					"value": "10",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1696581616117,
+			"name": "Delete Product",
+			"description": "",
+			"collectionId": "d4011dd1-6dd1-978a-d401-b7ee46892a2c",
+			"responses": []
+		}
+	]
+}

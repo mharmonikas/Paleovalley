@@ -29,11 +29,11 @@ class AuthController extends Controller
                 return response()->json([
                     'status' => false,
                     'message' => 'Validation error.',
-                    'errors' => $validate->errors()
+                    'errors' => $validate->errors(),
                 ], 401);
             }
 
-            if(!Auth::attempt($request->only(['email', 'password']))){
+            if(!Auth::guard('web')->attempt($request->only(['email', 'password']))){
                 return response()->json([
                     'status' => false,
                     'message' => 'Wrong Email or Password.',
@@ -45,13 +45,14 @@ class AuthController extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'User logged in successfully.',
-                'token' => $user->createToken('api-token', ['products:create', 'products:update', 'products:delete'])->plainTextToken
-            ], 200);
+                'token' => $user->createToken('api-token', ['products:create', 'products:update', 'products:delete'])->plainTextToken,
+            ]);
 
         } catch (\Throwable $th) {
             return response()->json([
                 'status' => false,
-                'message' => $th->getMessage()
+                'message' => 'Could not login.',
+                'errors' => $th->getMessage(),
             ], 500);
         }
     }
@@ -75,26 +76,26 @@ class AuthController extends Controller
                 return response()->json([
                     'status' => false,
                     'message' => 'Validation error.',
-                    'errors' => $validate->errors()
+                    'errors' => $validate->errors(),
                 ], 401);
             }
 
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
-                'password' => Hash::make($request->password)
+                'password' => Hash::make($request->password),
             ]);
 
             return response()->json([
                 'status' => true,
                 'message' => 'User created successfully!',
-                'token' => $user->createToken('api-token')->plainTextToken
+                'token' => $user->createToken('api-token')->plainTextToken,
             ], 200);
 
         } catch (\Throwable $th) {
             return response()->json([
                 'status' => false,
-                'message' => $th->getMessage()
+                'message' => $th->getMessage(),
             ], 500);
         }
     }

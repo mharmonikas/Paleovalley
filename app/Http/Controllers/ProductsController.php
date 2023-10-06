@@ -49,13 +49,13 @@ class ProductsController extends Controller
                 ], 422);
             }
 
-            Product::create([
+            $product = Product::create([
                 'name' => $request->name,
                 'description' => $request->description,
                 'price' => $request->price,
             ]);
 
-            return response()->json(['status' => true, 'message' => 'Product created successfully.']);
+            return response()->json(['status' => true, 'message' => "Product with ID of {$product->id} created successfully."]);
         } catch (\Exception $e) {
             return response()->json(['status' => false, 'message' => 'Can not create product.', 'errors' => $e->getMessage()]);
         }
