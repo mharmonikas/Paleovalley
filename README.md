@@ -39,3 +39,5 @@ Here's how do the basic setup for any laravel app:
 - You can just import it into postman and run the requests to check the api.
 - Remember to first log in and put the token you got from the login in the header like: "Authorization: Bearer {token}"
 
+### You can run the tests by running this command in the command line:
+- php artisan test
