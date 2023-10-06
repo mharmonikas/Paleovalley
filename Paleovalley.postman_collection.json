@@ -17,17 +17,11 @@
 	"requests": [
 		{
 			"id": "1881465f-63dc-a9d1-e247-3d7c72191bf8",
-			"headers": "//Bearer: 1|nYPPFGM3r2skvq3rDH7A8G18MBAdTfQuOnMdOeD7\n//email: \nAccept: application/json\n",
+			"headers": "//Bearer: 1|nYPPFGM3r2skvq3rDH7A8G18MBAdTfQuOnMdOeD7\nAccept: application/json\n",
 			"headerData": [
 				{
 					"key": "Bearer",
 					"value": "1|nYPPFGM3r2skvq3rDH7A8G18MBAdTfQuOnMdOeD7",
-					"description": "",
-					"enabled": false
-				},
-				{
-					"key": "email",
-					"value": "",
 					"description": "",
 					"enabled": false
 				},
@@ -40,19 +34,11 @@
 			],
 			"url": "http://127.0.0.1:8000/api/login",
 			"queryParams": [],
+			"preRequestScript": null,
 			"pathVariables": {},
 			"pathVariableData": [],
-			"preRequestScript": null,
 			"method": "POST",
-			"collectionId": "d4011dd1-6dd1-978a-d401-b7ee46892a2c",
 			"data": [
-				{
-					"key": "name",
-					"value": "test",
-					"description": "",
-					"type": "text",
-					"enabled": false
-				},
 				{
 					"key": "email",
 					"value": "user@users.com",
@@ -66,25 +52,17 @@
 					"description": "",
 					"type": "text",
 					"enabled": true
-				},
-				{
-					"key": "c_password",
-					"value": "1234",
-					"description": "",
-					"type": "text",
-					"enabled": false
 				}
 			],
 			"dataMode": "params",
-			"name": "Login",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1696581248700,
-			"version": 2,
-			"responses": [],
 			"tests": null,
 			"currentHelper": "normal",
-			"helperAttributes": {}
+			"helperAttributes": {},
+			"time": 1696586334270,
+			"name": "Login",
+			"description": "",
+			"collectionId": "d4011dd1-6dd1-978a-d401-b7ee46892a2c",
+			"responses": []
 		},
 		{
 			"id": "7683984e-4ab6-68cc-03b4-c8bd36235ad7",
