@@ -22,7 +22,7 @@ class ProductsController extends Controller
 
             return response()->json($product);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Product does not exist.']);
+            return response()->json(['status' => false, 'message' => 'Product does not exist.', 'errors' => $e->getMessage()]);
         }
     }
 
@@ -100,7 +100,7 @@ class ProductsController extends Controller
     /**
      * Remove the specified product from database.
      *
-     * @param Product $product
+     * @param int $id
      * @return JsonResponse
      */
     public function destroy(int $id): JsonResponse
@@ -112,7 +112,7 @@ class ProductsController extends Controller
 
             return response()->json(['status' => true, 'message' => 'Product deleted successfully.']);
         } catch (\Exception $e) {
-            return response()->json(['status' => false, 'message' => 'Product does not exist']);
+            return response()->json(['status' => false, 'message' => 'Product does not exist', 'errors' => $e->getMessage()]);
         }
     }
 }
