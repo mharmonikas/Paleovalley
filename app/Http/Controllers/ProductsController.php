@@ -112,7 +112,7 @@ class ProductsController extends Controller
 
             return response()->json(['status' => true, 'message' => 'Product deleted successfully.']);
         } catch (\Exception $e) {
-            return response()->json(['status' => false, 'message' => 'Product does not exist', 'errors' => $e->getMessage()]);
+            return response()->json(['status' => false, 'message' => 'Product does not exist']);
         }
     }
 }
